@@ -16,6 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
       justify-content: center;
       align-items: center;
       z-index: calc(9999 * 9999 * 9999 * 9999);
+      opacity: 0;
+      transition: opacity 5s ease-in-out;
+    }
+    .contact-webmaster-overlay.active {
+      opacity: 1;
     }
     .contact-webmaster-inner-wrapper {
       text-align: center;
@@ -37,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
       text-decoration: none !important;
       border-radius: 5px;
       font-weight: bold;
+      transition: background-color 5s ease-in-out, color 5s ease-in-out;
     }
     .contact-button:hover {
       background-color: white;
@@ -69,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const button = document.createElement('a');
   button.textContent = 'Contact Support';
   button.href = `mailto:support@carbondigital.us?subject=Support Request - Issue on ${window.location.hostname}&body=Hello Support Team,%0D%0A%0D%0AI encountered an issue on my website page below.%0D%0A%0D%0APage: ${window.location.href}%0D%0A%0D%0APlease let me know if there’s any additional information I can provide.%0D%0A%0D%0AThank you!`;
-  button.classList.add('contact-button'); // Optional: add a class for styling
+  button.classList.add('contact-button');
   
   innerWrapper.appendChild(button);
   
@@ -78,4 +84,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Prepend the new element to the body
   document.body.prepend(newElement);
+
+  // Trigger the fade-in effect by adding the 'active' class after a slight delay
+  setTimeout(() => {
+    newElement.classList.add('active');
+  }, 10); // 10ms delay to trigger the transition
 });
