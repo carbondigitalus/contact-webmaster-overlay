@@ -85,8 +85,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Prepend the new element to the body
   document.body.prepend(newElement);
 
-  // Trigger the fade-in effect by adding the 'active' class after a slight delay
+  // Add a 5-second delay before starting the 5-second fade-in transition
   setTimeout(() => {
     newElement.classList.add('active');
-  }, 10); // 10ms delay to trigger the transition
+  }, 3000); // 3-second delay before the transition starts
 });
